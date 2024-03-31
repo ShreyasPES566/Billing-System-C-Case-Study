@@ -1,0 +1,16 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99
+
+OBJS = main.o customer.o product.o
+DEPS = customer.h product.h
+
+all: main
+
+main: $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f *.o main
