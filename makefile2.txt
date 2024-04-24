@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -Wall -Wextra
+
+main: main.o functions.o
+    $(CC) $(CFLAGS) -o main main.o functions.o
+
+main.o: main.c structures.h
+    $(CC) $(CFLAGS) -c main.c
+
+functions.o: functions.c structures.h
+    $(CC) $(CFLAGS) -c functions.c
+
+clean:
+    rm -f *.o main
